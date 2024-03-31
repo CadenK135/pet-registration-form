@@ -24,7 +24,7 @@
   </div>
 
   <form name="pet-info-form" 
-        onsubmit="return validateForm()"
+        onsubmit="validateForm()"
         action="https://postman-echo.com/post"
         method="post">
     <legend>Pet information</legend>
@@ -35,6 +35,8 @@
            class="form-control" 
            id="pet-name"
            placeholder="Fido"
+           maxlength="20"
+           required
            />
     <small class="form-text text-muted">Required. Must contain up to 20 alphabetical characters</small>  
     
@@ -43,7 +45,10 @@
     <input type="text" 
            class="form-control" 
            id="pet-age"
-           placeholder="5" />
+           placeholder="5"
+           min="1" max="15" 
+           required
+          />
     <small class="form-text text-muted">Required. 1 year old minimum age and 15 years old maximum age</small>
     
     <label for="owner-email-address-group">Email address</label>
@@ -51,7 +56,8 @@
     <input type="text" 
            class="form-control" 
            id="email-address" 
-           placeholder=""
+           placeholder="abc@xyz"
+           required
            />
     <small class="form-text text-muted">Required. Must contain a valid email address</small>       
     
@@ -61,6 +67,7 @@
            class="form-control" 
            id="phone-number"
            placeholder="XXX-XXX-XXXX"
+           required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
            />
     <small class="form-text text-muted">Required. Must contain numbers and dashes in the format of XXX-XXX-XXXX</small>        
     
